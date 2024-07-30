@@ -1,4 +1,4 @@
-import Tarefa from '../../components/FiltroCard/Tarefa'
+import Tarefa from '../../components/Tarefa'
 import { Container } from './styles'
 
 const tarefas = [
