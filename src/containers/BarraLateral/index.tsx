@@ -3,6 +3,7 @@ import FiltroCard from '../../components/FiltroCard'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { alteraTermo } from '../../store/reducers/filtro'
+import * as enums from '../../utils/enums/Tarefa'
 
 const BarraLateral = () => {
   const dispatch = useDispatch()
@@ -17,12 +18,32 @@ const BarraLateral = () => {
           onChange={(evento) => dispatch(alteraTermo(evento.target.value))}
         />
         <S.Filtros>
-          <FiltroCard legenda="Pendentes" contador={1} />
-          <FiltroCard legenda="Concluidas" contador={1} />
-          <FiltroCard legenda="Urgentes" contador={1} />
-          <FiltroCard legenda="Importantes" contador={1} />
-          <FiltroCard legenda="Normal" contador={1} />
-          <FiltroCard legenda="Todas" contador={1} ativo />
+          <FiltroCard
+            valor={enums.Status.PENDENTE}
+            criterio="status"
+            legenda="Pendentes"
+          />
+          <FiltroCard
+            valor={enums.Status.CONCLUIDA}
+            criterio="status"
+            legenda="Concluidas"
+          />
+          <FiltroCard
+            valor={enums.Prioridade.URGENTE}
+            criterio="prioridade"
+            legenda="Urgentes"
+          />
+          <FiltroCard
+            valor={enums.Prioridade.IMPORTANTE}
+            criterio="prioridade"
+            legenda="Importantes"
+          />
+          <FiltroCard
+            valor={enums.Prioridade.NORMAL}
+            criterio="prioridade"
+            legenda="Normal"
+          />
+          <FiltroCard criterio="todas" legenda="Todas" />
         </S.Filtros>
       </div>
     </S.Aside>
